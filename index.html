@@ -3,10 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
+    <title>Click Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #clickButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>测试一下</h1>
-    <p>This is a simple HTML page.</p>
+
+    <h1>Click Counter</h1>
+
+    <button id="clickButton" onclick="incrementCounter()">Click me</button>
+
+    <script>
+        // Initialize click count from localStorage or set to 0
+        let clickCount = parseInt(localStorage.getItem('clickCount')) || 0;
+
+        // Display initial count
+        console.log("Button clicked " + clickCount + " times.");
+
+        function incrementCounter() {
+            // Increment the click count
+            clickCount++;
+
+            // Store the updated count in localStorage
+            localStorage.setItem('clickCount', clickCount);
+
+            // Log the updated count
+            console.log("Button clicked " + clickCount + " times.");
+        }
+    </script>
+
 </body>
 </html>
